@@ -5,22 +5,15 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Read data passed via arguments (optional)
-    // final msg = ModalRoute.of(context)?.settings.arguments as String?;
+    final recipeName = ModalRoute.of(context)?.settings.arguments as String?;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Details')),
+      appBar: AppBar(title: const Text('Recipe Details')),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('This is the Details Screen'),
-            const SizedBox(height: 12),
-            // if (msg != null) Text(msg),
-            ElevatedButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Back'),
-            ),
-          ],
+        child: Text(
+          recipeName ?? 'No recipe selected',
+          style: const TextStyle(fontSize: 22),
+          textAlign: TextAlign.center,
         ),
       ),
     );

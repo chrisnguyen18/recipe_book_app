@@ -5,18 +5,31 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final recipes = <String>[
+      'Spaghetti Bolognese',
+      'Chicken Alfredo',
+      'Taco Salad',
+      'Pancakes',
+      'Avocado Toast',
+    ];
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate to DetailsScreen
-            Navigator.pushNamed(context, '/details');
-            // or with data:
-            // Navigator.pushNamed(context, '/details', arguments: 'Hello from Home!');
-          },
-          child: const Text('Go to Details'),
-        ),
+      body: ListView.builder(
+        itemCount: recipes.length,
+        itemBuilder: (context, index) {
+          final recipe = recipes[index];
+          return ListTile(
+            title: Text(recipe),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/details',
+                arguments: recipe,
+              );
+            },
+          );
+        },
       ),
     );
   }
