@@ -10,9 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Two Screens Demo',
+      title: 'Recipes',
       debugShowCheckedModeBanner: false,
-      // Named routes for simple navigation
       routes: {
         '/': (context) => const HomeScreen(),
         '/details': (context) => const DetailsScreen(),
